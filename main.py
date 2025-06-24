@@ -120,26 +120,26 @@ def get_curl_data(video_id, itags_to_check): # 引数名をより分かりやす
 
 # --- ルート定義 ---
 
-@app.route('/id')
-def show_usage():
-    """
-    /id パスにアクセスされた場合、APIの使い方をJSON形式で返します。
-    """
-    usage_data = {
-        "jp": {
-            "status": 200,
-            "message": "このAPIは動画情報の取得に使用できます。",
-            "使い方": "/id?v={動画ID} の形式でアクセスしてください。{動画ID}にはYouTubeなどの動画IDを指定します。itagパラメータは内部で自動的に試行されます。",
-            "例": "/id?v=dQw4w9WgXcQ"
-        },
-        "en": {
-            "status": 200,
-            "message": "This API can be used to retrieve video information.",
-            "usage": "Access in the format: /id?v={video_id}. Replace {video_id} with a video ID from platforms like YouTube. The itag parameter will be tried automatically internally.",
-            "example": "/id?v=dQw4w9WgXcQ"
-        }
-    }
-    return jsonify(usage_data), 200
+#@app.route('/id')
+#def show_usage():
+#    """
+#    /id パスにアクセスされた場合、APIの使い方をJSON形式で返します。
+#    """
+ #   usage_data = {
+#        "jp": {
+#            "status": 200,
+#            "message": "このAPIは動画情報の取得に使用できます。",
+#            "使い方": "/id?v={動画ID} の形式でアクセスしてください。{動画ID}にはYouTubeなどの動画IDを指定します。itagパラメータは内部で自動的に試行されます。",
+#            "例": "/id?v=dQw4w9WgXcQ"
+#        },
+ #       "en": {
+#            "status": 200,
+#            "message": "This API can be used to retrieve video information.",
+ #           "usage": "Access in the format: /id?v={video_id}. Replace {video_id} with a video ID from platforms like YouTube. The itag parameter will be tried automatically internally.",
+ #           "example": "/id?v=dQw4w9WgXcQ"
+ #       }
+#    }
+#    return jsonify(usage_data), 200
 
 @app.route('/id', methods=['GET'])
 def get_video_info():

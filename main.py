@@ -152,7 +152,7 @@ def get_video_info():
         return jsonify({
             "jp": {"status": 400, "error": "必須パラメータ 'v' が不足しています。例: /id?v=動画ID"},
             "en": {"status": 400, "error": "Missing required parameter 'v'. Example: /id?v=videoID"}
-        }), 400
+        }), 200
 
     print(f"Received request for video ID: {video_id}")
     
@@ -166,7 +166,7 @@ def get_video_info():
         return jsonify({
             "jp": {"status": 404, "error": f"動画ID {video_id} に対応する有効な動画が見つかりませんでした、または取得できませんでした。ログファイルを確認してください。"},
             "en": {"status": 404, "error": f"No valid video found or retrieved for video ID {video_id}. Please check log files."}
-        }), 404
+        }), 200
     
     return jsonify(result_data)
 
@@ -179,7 +179,7 @@ def not_found_error(error):
     return jsonify({
         "jp": {"status": 404, "error": "このパスは使用できません。正しいパスは /id または /id?v={動画ID} です。"},
         "en": {"status": 404, "error": "This path is not available. Correct paths are /id or /id?v={videoID}."}
-    }), 404
+    }), 200
 
 # --- アプリケーションの実行 ---
 if __name__ == '__main__':
